@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tuqul Inc.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header-container"></div>
+
+		<div id="contents">
+
+			<main>
+
+				<section>
+
+					<h2>Company</h2>
+
+					<table class="ta1">
+						<!-- <caption>会社概要</caption> -->
+						<tr>
+							<th>会社名</th>
+							<td>株式会社Tuqul</td>
+						</tr>
+						<tr>
+							<th>代表取締役</th>
+							<td>嶋田 翔三郎</td>
+						</tr>
+						<tr>
+							<th>所在地</th>
+							<td>〒107-0062<br>
+								東京都港区南青山3丁目1番36号青山丸竹ビル6F
+							</td>
+						</tr>
+					</table>
+
+				</section>
+
+			</main>
+
+		</div>
+		<!--/#contents-->
+
+		<div id="footer-container"></div>
+
+		<!--ページの上部へ戻るボタン-->
+		<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+	</div>
+	<!--/#container-->
+
+	<!--開閉ボタン（ハンバーガーアイコン）-->
+	<div id="menubar_hdr">
+		<span></span><span></span><span></span>
+	</div>
+
+	<!--jQueryの読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!--パララックス（inview）-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+	<script src="js/jquery.inview_set.js"></script>
+
+	<!--このテンプレート専用のスクリプト-->
+	<script src="js/main.js"></script>
+
+	<!--header, footer-->
+	<script>
+		// header.html を読み込んで#header-containerに挿入
+		fetch('include/header.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('header-container').innerHTML = data;
+			});
+		fetch('include/footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer-container').innerHTML = data;
+			});
+	</script>
+
+</body>
+
+</html>

@@ -3,15 +3,20 @@
 
 
 /*スライドショー（cssでのbackground使用）
-ここでは、2:1の画像比率（1÷2=0.5）を読み込む指定を行なっています。
-異なる画像比率にしたい場合、#mainimgのpadding-topの数字を変更します。
+ここでは、10:8の画像比率（8÷10=0.8）を読み込む指定を行なっています。
+異なる画像比率にしたい場合、.mainimgのpadding-topの数字を変更します。2:1にするなら50%です。
 ---------------------------------------------------------------------------*/
 /*3枚の画像を囲むブロック*/
 #mainimg {
 	width: 100%;
 	height: 0;
-	padding-top: 50%;
+	padding-top: 80%;
 	position: relative;
+}
+
+/*３セットのスライドショーを囲むそれぞれのブロック*/
+#mainimg div div {
+	width: 45vw;	/*幅。画面の45%。*/
 }
 
 /*３枚の画像の共通設定*/
@@ -20,6 +25,7 @@
 	position: absolute;right: 0px;top: 0px;
 	display: flex;
 	align-items: center;
+	padding: 0 5vw;
 	opacity: 0;
 	transition: opacity 1s;	/*ここの1s（＝1秒）を変更すると、フェードのスピードを変更できます。*/
 }
@@ -32,8 +38,7 @@
 /*２枚目画像*/
 .slide2 {
 	background: url('../images/2.jpg') no-repeat center center / cover;	/*２枚目の背景画像の読み込み*/
-	justify-content: flex-end;	/*テキストブロックを右側に*/
-	text-align: right;			/*テキストを右寄せ*/
+	justify-content: flex-end;	/*テキストブロックを右寄せ*/
 }
 
 /*３枚目画像*/
@@ -41,6 +46,20 @@
 	background: url('../images/3.jpg') no-repeat center center / cover;	/*３枚目の背景画像の読み込み*/
 	justify-content: center;	/*テキストブロックを中央に*/
 	text-align: center;			/*テキストをセンタリング*/
+}
+
+/*大きなテキスト*/
+#mainimg h1 {
+	margin: 0;padding: 0;
+	font-size: 6vw;		/*文字サイズ。100vwは画面幅100%のことです。*/
+	line-height: 1.5;	/*行間を少し狭く*/
+	font-weight: 500;	/*文字の太さを少し太く*/
+}
+
+/*小さなテキスト*/
+#mainimg p {
+	font-size: 1.4vw;		/*文字サイズ。100vwは画面幅100%のことです*/
+	padding-left: 0.5rem;	/*左に空ける余白。0.5文字分。*/
 }
 
 
@@ -52,24 +71,5 @@
 
 .slide.active {
 	pointer-events: auto; /* 表示中のスライドのみクリックを有効にする */
-}
-
-
-/*スライドショー上のテキスト
----------------------------------------------------------------------------*/
-#mainimg p {
-	display: block;
-	line-height: 1;
-	font-size: 2.8vw;	/*文字サイズ。100vwは画面幅100%のことです*/
-	font-weight: 400;	/*文字の太さ。100から900まで指定可能*/
-}
-
-/*テキストに合わせて背景色をつける為の指定*/
-#mainimg p span {
-	display: inline-block;
-	padding: 0.2em 1em 0.3em;	/*テキストと背景色との余白調整。上、左右、下への順番です。お好みで。*/
-	background: #4c4c4c;	/*背景色*/
-	color: #fff;		/*文字色*/
-	margin: 0.5em 0;	/*２行のテキストの間のマージン*/
 }
 

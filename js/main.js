@@ -23,11 +23,10 @@ function debounce(func, wait) {
 // 変数でセレクタを管理
 var $menubar = $('#menubar');
 var $menubarHdr = $('#menubar_hdr');
-var $headerNav = $('header nav');
 
 // menu
 $(window).on("load resize", debounce(function() {
-    if(window.innerWidth < 9999) {	// ここがブレイクポイント指定箇所です
+    if(window.innerWidth < 900) {	// ここがブレイクポイント指定箇所です
         // 小さな端末用の処理
         $('body').addClass('small-screen').removeClass('large-screen');
         $menubar.addClass('display-none').removeClass('display-block');
@@ -65,14 +64,9 @@ $(function() {
 	$menubar.find('a[href=""]').click(function() {
 		return false;
 	});
-	$headerNav.find('a[href=""]').click(function() {
-		return false;
-	});
 
 	// ドロップダウンメニューの処理
     $menubar.find('li:has(ul)').addClass('ddmenu_parent');
-    $('.ddmenu_parent > a').addClass('ddmenu');
-    $headerNav.find('li:has(ul)').addClass('ddmenu_parent');
     $('.ddmenu_parent > a').addClass('ddmenu');
 
 // タッチ開始位置を格納する変数
@@ -148,9 +142,12 @@ $(function() {
 
 
 //===============================================================
-// スムーススクロール（※バージョン2024-1）※通常タイプ
+// スムーススクロール（※バージョン2024-1）※ヘッダーの高さとマージンを取得する場合
 //===============================================================
 $(function() {
+    var headerHeight = $('header').outerHeight();
+    var headerMargin = parseInt($('header').css("margin-top"));
+    var totalHeaderHeight = headerHeight + headerMargin;
     // ページ上部へ戻るボタンのセレクター
     var topButton = $('.pagetop');
     // ページトップボタン表示用のクラス名
@@ -160,7 +157,7 @@ $(function() {
     // targetにはスクロール先の要素のセレクターまたは'#'（ページトップ）を指定
     function smoothScroll(target) {
         // スクロール先の位置を計算（ページトップの場合は0、それ以外は要素の位置）
-        var scrollTo = target === '#' ? 0 : $(target).offset().top;
+        var scrollTo = target === '#' ? 0 : $(target).offset().top - totalHeaderHeight;
         // アニメーションでスムーススクロールを実行
         $('html, body').animate({scrollTop: scrollTo}, 500);
     }
@@ -198,10 +195,10 @@ $(function() {
 // 汎用開閉処理
 //===============================================================
 $(function() {
-	$('.openclose').next().hide();
-	$('.openclose').click(function() {
+	$('.openclose-parts').next().hide();
+	$('.openclose-parts').click(function() {
 		$(this).next().slideToggle();
-		$('.openclose').not(this).next().slideUp();
+		$('.openclose-parts').not(this).next().slideUp();
 	});
 });
 
@@ -219,7 +216,7 @@ $(function() {
             $(this).text('');
 
             for (let i = 0; i < text.length; i++) {
-                innerHTML += `<span class="char" style="animation-delay: ${i * 0.1}s;">${text[i]}</span>`;
+                innerHTML += `<span class="char" style="animation-delay: ${i * 0.2}s;">${text[i]}</span>`;
             }
 
             $(this).html(innerHTML).css('visibility', 'visible');
@@ -235,19 +232,19 @@ $(function() {
 //===============================================================
 $(function() {
     // 初期表示: 各 .thumbnail-view に対して、直後の .thumbnail の最初の画像を表示
-    $(".thumbnail-view").each(function() {
-        var firstThumbnailSrc = $(this).next(".thumbnail").find("img:first").attr("src");
+    $(".thumbnail-view-parts").each(function() {
+        var firstThumbnailSrc = $(this).next(".thumbnail-parts").find("img:first").attr("src");
         var defaultImage = $("<img>").attr("src", firstThumbnailSrc);
         $(this).append(defaultImage);
     });
 
     // サムネイルがクリックされたときの動作
-    $(".thumbnail img").click(function() {
+    $(".thumbnail-parts img").click(function() {
         var imgSrc = $(this).attr("src");
         var newImage = $("<img>").attr("src", imgSrc).hide();
 
         // このサムネイルの直前の .thumbnail-view 要素を取得
-        var targetPhoto = $(this).parent(".thumbnail").prev(".thumbnail-view");
+        var targetPhoto = $(this).parent(".thumbnail-parts").prev(".thumbnail-view-parts");
 
         targetPhoto.find("img").fadeOut(400, function() {
             targetPhoto.empty().append(newImage);

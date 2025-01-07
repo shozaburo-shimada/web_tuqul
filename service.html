@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tuqul Inc.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header-container"></div>
+
+		<div id="contents">
+
+			<main>
+
+				<section>
+
+					<h2 class="c"><span class="fade-in-text">Service</span><span class="hosoku">事業内容</span></h2>
+					<div id="service-container"></div>
+					<!--
+					<div class="list-grid1">
+
+						<div class="list">
+							<figure><img src="images/sample1.jpg" alt=""></figure>
+							<div class="text">
+								<h4>ここにタイトルを入れます</h4>
+								<p>ここに説明を入れます。サンプルテキスト。</p>
+							</div>
+							<p class="btn"><a href="service.html">詳しくみる</a></p>
+						</div>
+
+						<div class="list">
+							<figure><img src="images/sample1.jpg" alt=""></figure>
+							<div class="text">
+								<h4>ここにタイトルを入れます</h4>
+								<p>ここに説明を入れます。サンプルテキスト。</p>
+							</div>
+							<p class="btn"><a href="service.html">詳しくみる</a></p>
+						</div>
+
+						<div class="list">
+							<figure><img src="images/sample1.jpg" alt=""></figure>
+							<div class="text">
+								<h4>ここにタイトルを入れます</h4>
+								<p>ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。ここに説明を入れます。サンプルテキスト。</p>
+							</div>
+							<p class="btn"><a href="service.html">詳しくみる</a></p>
+						</div>
+
+					</div>
+					-->
+					<!--/.list-grid1-->
+
+				</section>
+
+			</main>
+
+		</div>
+		<!--/#contents-->
+
+		<div id="footer-container"></div>
+
+		<!--ページの上部へ戻るボタン-->
+		<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+	</div>
+	<!--/#container-->
+
+	<!--開閉ボタン（ハンバーガーアイコン）-->
+	<div id="menubar_hdr">
+		<span></span><span></span><span></span>
+	</div>
+
+	<!--jQueryの読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!--パララックス（inview）-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+	<script src="js/jquery.inview_set.js"></script>
+
+	<!--このテンプレート専用のスクリプト-->
+	<script src="js/main.js"></script>
+
+	<!--header, footer-->
+	<script>
+		// header.html を読み込んで#header-containerに挿入
+		fetch('include/header.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('header-container').innerHTML = data;
+			});
+		fetch('include/footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer-container').innerHTML = data;
+			});
+		fetch('include/content.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('service-container').innerHTML = data;
+			});
+	</script>
+</body>
+
+</html>

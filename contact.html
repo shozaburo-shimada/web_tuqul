@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tuqul Inc.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header-container"></div>
+
+		<div id="contents">
+
+			<main>
+
+				<section>
+
+
+					<h2 class="c">Contact<span class="hosoku">ものづくりに関するご相談、お仕事のご依頼など</span></h2>
+
+					<iframe
+						src="https://docs.google.com/forms/d/e/1FAIpQLScUAKz1MK4w0KMRQcsWe05maIxfO5tJw0xYgfuSmmB3q-yvaQ/viewform?embedded=true"
+						width="100%" height="959" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+
+				</section>
+
+			</main>
+
+		</div>
+		<!--/#contents-->
+
+		<div id="footer-container"></div>
+
+		<!--ページの上部へ戻るボタン-->
+		<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+	</div>
+	<!--/#container-->
+
+	<!--開閉ボタン（ハンバーガーアイコン）-->
+	<div id="menubar_hdr">
+		<span></span><span></span><span></span>
+	</div>
+
+	<!--jQueryの読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!--パララックス（inview）-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+	<script src="js/jquery.inview_set.js"></script>
+
+	<!--このテンプレート専用のスクリプト-->
+	<script src="js/main.js"></script>
+
+	<!--header, footer-->
+	<script>
+		// header.html を読み込んで#header-containerに挿入
+		fetch('include/header.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('header-container').innerHTML = data;
+			});
+		fetch('include/footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer-container').innerHTML = data;
+			});
+	</script>
+
+</body>
+
+</html>

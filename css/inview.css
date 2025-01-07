@@ -98,7 +98,7 @@
 	transform: scale(0);
 }
 50% {
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
 70% {
 	transform: scale(0.99);
@@ -115,6 +115,6 @@
 
 /*要素が見えたら実行するアクション*/
 .transform3style {
-	animation: transform3 0.3s ease-out 0.5s both;	/*0.5秒待機後、0.3秒かけてアニメーションを実行*/
+	animation: transform3 0.8s ease-out 0.5s both;
 }
 

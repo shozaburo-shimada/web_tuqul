@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tuqul Inc.</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="ここにサイト説明を入れます">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header-container"></div>
+
+		<div id="contents">
+
+			<main>
+
+				<section>
+
+					<h2>サービス詳細</h2>
+
+					<p>html側を参考に、表示させたい画像は全て「thumbnail-parts」内に入れて下さい。<br>
+						大きな画像も兼用するので、ある程度大きめにしておきます。</p>
+					<p>※必ずthumbnail-view-partsブロックの直後にthumbnail-partsブロックを配置して下さい。<br>
+						間に他のタグがあると正常に動作しません。</p>
+
+					<!--大きな画像を読み込む為のボックスなので削除しないで下さい-->
+					<div class="thumbnail-view-parts"></div>
+
+					<!--サムネイルブロック-->
+					<div class="thumbnail-parts">
+						<img src="images/sample1.jpg" alt="">
+						<img src="images/sample2.jpg" alt="">
+						<img src="images/sample3.jpg" alt="">
+					</div>
+
+				</section>
+
+			</main>
+
+		</div>
+		<!--/#contents-->
+
+		<div id="footer-container"></div>
+
+		<!--ページの上部へ戻るボタン-->
+		<div class="pagetop"><a href="#"><i class="fas fa-angle-double-up"></i></a></div>
+
+	</div>
+	<!--/#container-->
+
+	<!--開閉ボタン（ハンバーガーアイコン）-->
+	<div id="menubar_hdr">
+		<span></span><span></span><span></span>
+	</div>
+
+	<!--jQueryの読み込み-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<!--パララックス（inview）-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+	<script src="js/jquery.inview_set.js"></script>
+
+	<!--このテンプレート専用のスクリプト-->
+	<script src="js/main.js"></script>
+
+	<!--header, footer-->
+	<script>
+		// header.html を読み込んで#header-containerに挿入
+		fetch('include/header.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('header-container').innerHTML = data;
+			});
+		fetch('include/footer.html')
+			.then(response => response.text())
+			.then(data => {
+				document.getElementById('footer-container').innerHTML = data;
+			});
+	</script>
+</body>
+
+</html>
