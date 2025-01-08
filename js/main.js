@@ -118,6 +118,26 @@ $(function () {
             console.error('header.htmlの読み込みに失敗しました:', error);
         });
 
+    //Footerの挿入
+    fetch('include/footer.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('footer-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('footer.htmlの読み込みに失敗しました:', error);
+        });
+
+    //Serviceページの挿入
+    fetch('include/content.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('service-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('content.htmlの読み込みに失敗しました:', error);
+        });
+
 });
 
 

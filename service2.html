@@ -68,15 +68,6 @@
 	<!--このテンプレート専用のスクリプト-->
 	<script src="js/main.js"></script>
 
-	<!--header, footer-->
-	<script>
-		// header.html を読み込んで#header-containerに挿入
-		fetch('include/footer.html')
-			.then(response => response.text())
-			.then(data => {
-				document.getElementById('footer-container').innerHTML = data;
-			});
-	</script>
 </body>
 
 </html>
