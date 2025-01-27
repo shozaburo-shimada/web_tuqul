@@ -138,6 +138,17 @@ $(function () {
             console.error('content.htmlの読み込みに失敗しました:', error);
         });
 
+    //Companyページの挿入
+    fetch('include/com_company.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('company-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('com_company.htmlの読み込みに失敗しました:', error);
+        });
+
+
 });
 
 
