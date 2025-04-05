@@ -129,13 +129,23 @@ $(function () {
         });
 
     //Serviceページの挿入
-    fetch('include/content.html')
+    fetch('include/content_service.html')
         .then(response => response.text())
         .then(html => {
             document.getElementById('service-container').innerHTML = html;
         })
         .catch(error => {
-            console.error('content.htmlの読み込みに失敗しました:', error);
+            console.error('content_service.htmlの読み込みに失敗しました:', error);
+        });
+
+    //Productページの挿入
+    fetch('include/content_product.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('product-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('content_product.htmlの読み込みに失敗しました:', error);
         });
 
     //Companyページの挿入
