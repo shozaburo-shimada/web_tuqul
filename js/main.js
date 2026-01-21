@@ -148,6 +148,26 @@ $(function () {
             console.error('content_product.htmlの読み込みに失敗しました:', error);
         });
 
+    //Workshopページの挿入
+    fetch('include/content_ws.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('ws-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('content_ws.htmlの読み込みに失敗しました:', error);
+        });
+
+    //Spaceページの挿入
+    fetch('include/content_space.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('space-container').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('content_space.htmlの読み込みに失敗しました:', error);
+        });
+
     //Companyページの挿入
     fetch('include/com_company.html')
         .then(response => response.text())
