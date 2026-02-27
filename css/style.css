@@ -799,6 +799,13 @@ animationの行の「0.05s」が文字の出現のなめらかさで、大きい
 	/*文字サイズを85%に*/
 }
 
+/*ハッシュタグ（タグ表示）*/
+/* #6ea8b4 */
+.tag {
+	color:#6ea8b4;
+	font-weight: normal;
+}
+
 /*画面幅500px以上の追加指定*/
 @media screen and (min-width:500px) {
 
